@@ -1,0 +1,74 @@
+{
+	"name": "myext",
+	"displayName": "my extension",
+	"description": "vscode extension template",
+	"version": "1.0.0",
+	"publisher": "yor name",
+	"private": true,
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/"
+	},
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"main": "./out/extension.js",
+	"icon": "images/icon.png",
+	"activationEvents": [
+		"onLanguage:myext"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "myext",
+				"extensions": [
+					".ext"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "myext",
+				"title": "my extension"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "resourceLangId == 'myext' && resourceExtname == '.ext'",
+					"command": "myext",
+					"group": "debug"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./ && gulp",
+		"lint": "eslint . --ext .ts,.tsx",
+		"watch": "tsc -watch -p ./",
+		"gulp": "gulp",
+		"package": "vsce package"
+	},
+	"devDependencies": {
+		"@types/node": "^18.11.18",
+		"@types/vscode": "^1.75.0",
+		"@typescript-eslint/eslint-plugin": "^4.16.0",
+		"@typescript-eslint/parser": "^4.16.0",
+		"eslint": "^7.21.0",
+		"gulp": "^4.0.2",
+		"gulp-terser": "^2.1.0",
+		"gulp-typescript": "^6.0.0-alpha.1",
+		"vsce": "^2.15.0"
+	},
+	"dependencies": {
+		"ts-node": "^10.9.1",
+		"tsconfig-paths": "^4.1.2",
+		"typescript": "^4.9.4"
+	}
+}

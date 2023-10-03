@@ -1,0 +1,11 @@
+
+function main() {
+    console.log("Hello World");
+    let i = 0;
+    if(i > 0) {
+        while(i < 100) {
+            // 100になるまでループ
+            i++;
+        }
+    }
+}

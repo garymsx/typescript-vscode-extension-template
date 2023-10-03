@@ -1,0 +1,24 @@
+ISC License (ISC)
+
+Copyright <YEAR> <OWNER>
+
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted,
+provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED “AS IS” AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO
+THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS.
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES
+OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
+ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Copyright <年> <著者>
+
+このソフトウェアの使用、複製、変更、および/または配布を有料または無料にかかわらず、目的に応じて許可されます。
+ただし、上記の著作権表示およびこの許可表示がすべての複製に表示されること。
+
+本ソフトウェアは「現状のまま」提供され、作者は商品性および適合性に関するすべての暗黙の保証を否認します。
+作者は、契約、不注意、またはその他の違法行為に起因する特別、直接、間接、
+または連続的な損害または利益の損失等、いかなる損害についても責任を負いません。
+このソフトウェアの使用またはパフォーマンスに起因するものと関係するかどうかを問わず、
+それに由来する損害、データまたは利益の損失を含む、いかなる損害についても作者は責任を負いません。
