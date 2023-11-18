@@ -31,20 +31,72 @@
 				"configuration": "./language-configuration.json"
 			}
 		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "mySidebar",
+					"title": "My Sidebar",
+					"icon": "./images/sidebar.png"
+				},
+				{
+					"id": "myWebview",
+					"title": "My Sidebar WebView",
+					"icon": "./images/sidebar.png"
+				}
+			]
+		},
+		"views": {
+			"mySidebar": [
+				{
+					"id": "mySidebar",
+					"name": "test"
+				}
+			],
+			"myWebview": [
+				{
+					"type": "webview",
+					"id": "mySidebarWebView",
+					"name": "test"
+				}
+			]
+		},
 		"commands": [
 			{
-				"command": "myext",
-				"title": "my extension"
+				"command": "mySidebar.myext",
+				"title": "MyExtension",
+				"icon": "./images/sidebarToolIcon.png"
 			}
 		],
 		"menus": {
 			"editor/context": [
 				{
 					"when": "resourceLangId == 'myext' && resourceExtname == '.ext'",
-					"command": "myext",
+					"command": "mySidebar.myext",
 					"group": "debug"
 				}
+			],
+			"view/title": [
+				{
+					"command": "mySidebar.myext",
+					"when": "view == mySidebar",
+					"group": "navigation"
+				}
 			]
+		},
+		"configuration": {
+			"title": "MyExt",
+			"properties": {
+				"MyExt.textSetting": {
+					"type": "string",
+					"default": "MyExt Sample Text",
+					"description": "MyExt Test Setting"
+				},
+				"MyExt.booleanSetting": {
+					"type": "boolean",
+					"default": true,
+					"description": "MyExt Boolean Setting"
+				}
+			}
 		}
 	},
 	"scripts": {
