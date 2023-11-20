@@ -1,21 +1,21 @@
 import * as vscode from "vscode";
 
-export interface MyTreeViewItem {
+export interface MySidebarTreeViewItem {
     label: string;
 }
 
-export class MyTreeViewProvider
-    implements vscode.TreeDataProvider<MyTreeViewItem>
+export class MySidebarTreeViewProvider
+    implements vscode.TreeDataProvider<MySidebarTreeViewItem>
 {
-    getTreeItem(element: MyTreeViewItem): vscode.TreeItem {
+    getTreeItem(element: MySidebarTreeViewItem): vscode.TreeItem {
         return {
             label: element.label,
         };
     }
 
     getChildren(
-        element?: MyTreeViewItem
-    ): MyTreeViewItem[] | Thenable<MyTreeViewItem[]> {
+        element?: MySidebarTreeViewItem
+    ): MySidebarTreeViewItem[] | Thenable<MySidebarTreeViewItem[]> {
         if (!element) {
             return [
                 { label: "MyTreeView Item 1" },

@@ -1,17 +1,23 @@
 import * as vscode from "vscode";
 
 export class MySidebarWebviewProvider implements vscode.WebviewViewProvider {
+  webviewView?: vscode.WebviewView;
+
   constructor(private extensionUri: vscode.Uri) {}
 
   public resolveWebviewView(webviewView: vscode.WebviewView) {
     webviewView.webview.options = {
-      enableScripts: true
+      enableScripts: true,
+      localResourceRoots: [vscode.Uri.joinPath(this.extensionUri, 'out/scripts')]
     };
 
-    // Add reload button
-    webviewView.webview.onDidReceiveMessage(data => {
-      if (data.type === 'reload') {
-          this.getHtmlForWebview(webviewView);
+    this.webviewView = webviewView;
+
+    webviewView.webview.onDidReceiveMessage((data) => {
+      switch(data.type){
+        case "clicked":
+          console.log(data.text);
+          break;
       }
     });
 
@@ -21,6 +27,10 @@ export class MySidebarWebviewProvider implements vscode.WebviewViewProvider {
   getHtmlForWebview(webviewView: vscode.WebviewView) {
     const textSetting = vscode.workspace.getConfiguration('MyExt').get('textSetting');
     const booleanSetting = vscode.workspace.getConfiguration('MyExt').get('booleanSetting');
+
+    const scriptUri = webviewView.webview.asWebviewUri(
+      vscode.Uri.joinPath(this.extensionUri, "out/scripts", "index.js")
+    );
 
     // WebViewで表示したいHTMLを設定します
     webviewView.webview.html = `
@@ -33,8 +43,13 @@ export class MySidebarWebviewProvider implements vscode.WebviewViewProvider {
       </head>
       <body>
         <h1>MySidebar Webview</h1>
-        textSetting: ${textSetting} <br/>
-        booleanSetting: ${booleanSetting}
+        <h2>extensions configuration</h2>
+        <p>textSetting: ${textSetting}</p>
+        <p>booleanSetting: ${booleanSetting}</p>
+        <h2>script</h2>
+        <button id="button">OK</button>
+        <script src="${scriptUri}"></script>
+        <p id="message"></p>
       </body>
       </html>
     `;

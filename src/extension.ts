@@ -1,7 +1,5 @@
 import * as vscode from "vscode";
 import * as MyExt from "./extensions";
-import { MySidebarWebviewProvider } from "./extensions/MySidebarWebviewProvider";
-import { MyTreeViewProvider } from "./extensions/MyTreeView";
 
 const selector:vscode.DocumentSelector = {
     scheme: 'file',
@@ -43,17 +41,29 @@ export function activate(context: vscode.ExtensionContext) {
 
     // TreeViewの作成と登録
     const myTreeView = vscode.window.createTreeView("mySidebar", {
-        treeDataProvider: new MyTreeViewProvider(),
+        treeDataProvider: new MyExt.MySidebarTreeViewProvider(),
     });
     // 後片付け
     context.subscriptions.push(myTreeView);
+
+    const webviewView = new MyExt.MySidebarWebviewProvider(context.extensionUri);
     // WebView を登録
     context.subscriptions.push(
         vscode.window.registerWebviewViewProvider(
             "mySidebarWebView", // package.json で設定した`id`と同じ値にして下さい
-            new MySidebarWebviewProvider(context.extensionUri)
+            webviewView
         )
     );
+
+    // コマンド拡張
+    context.subscriptions.push(vscode.commands.registerCommand(
+        'mySidebarWebView.myext',
+        () => {
+            const command = new MyExt.MyExtWebViewCommand(webviewView);
+            command.execute();
+        })
+    );
+
 
     // ファイルが作成、削除されたらファイルリストを更新する
     const folders = vscode.workspace.workspaceFolders;
