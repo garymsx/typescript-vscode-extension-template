@@ -8,7 +8,10 @@ export class MySidebarWebviewProvider implements vscode.WebviewViewProvider {
   public resolveWebviewView(webviewView: vscode.WebviewView) {
     webviewView.webview.options = {
       enableScripts: true,
-      localResourceRoots: [vscode.Uri.joinPath(this.extensionUri, 'out/scripts')]
+      localResourceRoots: [
+        vscode.Uri.joinPath(this.extensionUri, 'out/scripts'),
+        vscode.Uri.joinPath(this.extensionUri, 'style'),
+      ]
     };
 
     this.webviewView = webviewView;
@@ -32,6 +35,10 @@ export class MySidebarWebviewProvider implements vscode.WebviewViewProvider {
       vscode.Uri.joinPath(this.extensionUri, "out/scripts", "index.js")
     );
 
+    const cssUri = webviewView.webview.asWebviewUri(
+      vscode.Uri.joinPath(this.extensionUri, "style", "index.css")
+    );
+
     // WebViewで表示したいHTMLを設定します
     webviewView.webview.html = `
       <!DOCTYPE html>
@@ -40,6 +47,7 @@ export class MySidebarWebviewProvider implements vscode.WebviewViewProvider {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>WebView Example</title>
+        <link rel="stylesheet" type="text/css" href="${cssUri}"/>
       </head>
       <body>
         <h1>MySidebar Webview</h1>
@@ -47,11 +55,11 @@ export class MySidebarWebviewProvider implements vscode.WebviewViewProvider {
         <p>textSetting: ${textSetting}</p>
         <p>booleanSetting: ${booleanSetting}</p>
         <h2>script</h2>
-        <button id="button">OK</button>
+        <button id="button" class="button">OK</button>
         <script src="${scriptUri}"></script>
         <p id="message"></p>
       </body>
       </html>
     `;
-}
+  }
 }
