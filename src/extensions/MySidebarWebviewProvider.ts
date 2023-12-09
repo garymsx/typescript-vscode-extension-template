@@ -64,7 +64,7 @@ export class MySidebarWebviewProvider implements vscode.WebviewViewProvider {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src ${webview.cspSource}; style-src ${webview.cspSource}; script-src 'nonce-${nonce}';">
+		    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src ${webview.cspSource}; style-src ${webview.cspSource}; script-src 'nonce-${nonce}';">
         <title>WebView Example</title>
 
         <link rel="stylesheet" href="${codiconsUri}" />
@@ -86,10 +86,9 @@ export class MySidebarWebviewProvider implements vscode.WebviewViewProvider {
           <vscode-button appearance="secondary">Button Text</vscode-button>
           <vscode-button>
             <span class="codicon codicon-check"></span>
-			Button Text
+			      Button Text
           </vscode-button>
-
-		  <vscode-button type="submit">Submit Button</vscode-button>
+		      <vscode-button type="submit">Submit Button</vscode-button>
         </fieldset>
 
         <fieldset>
@@ -181,14 +180,7 @@ export class MySidebarWebviewProvider implements vscode.WebviewViewProvider {
             <span slot="start" class="codicon codicon-search"></span>
           </vscode-text-field>
         </fieldset>
-
-        <!--
-        <fieldset>
-          <legend>vscode-</legend>
-        </fieldset>
-		    -->
-
-		</body>
+ 		    </body>
       </html>
     `;
   }
