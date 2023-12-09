@@ -11,8 +11,8 @@
 		// "disableReferencedProjectLoad": true,             /* TypeScriptによって自動的にロードされるプロジェクトの数を減らします。 */
 
 		/* 言語と環境 */
-		"target": "es2019",                                  /* 出力されるJavaScriptの言語バージョンを設定し、互換性のあるライブラリ宣言を含めます。 */
-		"lib": ["ES6","dom"],                                /* ターゲットランタイム環境を記述する一連のバンドルされたライブラリ宣言ファイルを指定します。 */
+		"target": "ES2020",                                  /* 出力されるJavaScriptの言語バージョンを設定し、互換性のあるライブラリ宣言を含めます。 */
+		"lib": ["ES2020", "DOM"],                            /* ターゲットランタイム環境を記述する一連のバンドルされたライブラリ宣言ファイルを指定します。 */
 		// "jsx": "preserve",                                /* 生成されるJSXコードを指定します。 */
 		// "experimentalDecorators": true,                   /* レガシーな実験的デコレータのサポートを有効にします。 */
 		// "emitDecoratorMetadata": true,                    /* ソースファイルのデコレートされた宣言に対してデザインタイプのメタデータを出力します。 */
@@ -106,7 +106,5 @@
 		// "skipDefaultLibCheck": true,                      /* TypeScriptに含まれる.d.tsファイルの型チェックをスキップします。 */
 		// "skipLibCheck": true                              /* すべての.d.tsファイルの型チェックをスキップします。 */
 	},
-	"exclude": [
-		"node_modules", ".vscode-test"
-	]
+    "exclude": ["node_modules", ".vscode-test", "src/webview/"]
 }

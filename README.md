@@ -15,7 +15,9 @@ VSCode + TypeScriptで言語拡張、およびその他拡張を速攻作り始�
 
 - サイドバー(TreeView)
 
-- サイドバー(WebView)
+- サイドバー(WebView)  
+
+  サイドバーはwebview-ui-toolkitを使用して作成されています。
 
 - セマンティックハイライト拡張
 
@@ -51,14 +53,8 @@ VSCode + TypeScriptで言語拡張、およびその他拡張を速攻作り始�
 - TypeScript関係(ts-node)
   TypeScriptコンパイラ、定義情報など
 
-- vsce
-  拡張をパッケージ(vsix化)するもの。拡張をストアなどに公開する際に必要。
-
 - eslint
   静的解析ツール
-
-- gulp
-  拡張をパッケージする前に、ソースをミニマイズ化するもの。
 
 ## npm script
 
@@ -66,7 +62,7 @@ VSCode + TypeScriptで言語拡張、およびその他拡張を速攻作り始�
 vsixファイルを作成します。
 
 ```shell
-$ npm run package
+$ vsce package
 ```
 
 ### ライセンスについて

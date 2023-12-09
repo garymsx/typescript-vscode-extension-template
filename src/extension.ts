@@ -39,6 +39,15 @@ export function activate(context: vscode.ExtensionContext) {
         })
     );
 
+    // コマンド拡張
+    context.subscriptions.push(vscode.commands.registerCommand(
+        'myExt.myExtCommand2',
+        () => {
+            const command = new MyExt.MyExtCommand2();
+            command.execute(context.extensionUri);
+        })
+    );
+
     // TreeViewの作成と登録
     const myTreeView = vscode.window.createTreeView("mySidebar", {
         treeDataProvider: new MyExt.MySidebarTreeViewProvider(),
@@ -63,7 +72,6 @@ export function activate(context: vscode.ExtensionContext) {
             command.execute();
         })
     );
-
 
     // ファイルが作成、削除されたらファイルリストを更新する
     const folders = vscode.workspace.workspaceFolders;

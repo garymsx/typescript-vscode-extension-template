@@ -19,7 +19,7 @@ export class MySidebarTreeViewProvider
         if (!element) {
             return [
                 { label: "MyTreeView Item 1" },
-                { label: "MyTreeView Item 1" },
+                { label: "MyTreeView Item 2" },
             ];
         } else {
             return [];
